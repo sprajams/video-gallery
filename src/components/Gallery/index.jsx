@@ -22,7 +22,7 @@ const Gallery = () => {
     embla.on("select", onSelect);
     onSelect();
   }, [embla, onSelect]);
-  console.log(embla);
+
   return (
     <div className={styles.outer} ref={viewportRef}>
       <div className={styles.wrap}>
