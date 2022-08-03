@@ -11,7 +11,7 @@
   width: 85%;
   height: fit-content;
   padding: 5px;
-  background: rgba(75, 75, 75, 0.5);
+  text-align: start;
 }
 .sideBar {
   position: absolute;
@@ -24,7 +24,7 @@
 .sideBarBtn {
   border: none;
   width: 32px;
-  background: rgba(75, 75, 75, 0.5);
+  background: transparent;
   border-radius: 8px;
   padding: 5px;
   color: inherit;
