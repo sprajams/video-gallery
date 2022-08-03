@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Video from "../Video";
+import Overlay from "../Overlay";
 import vidData from "../../constants/video_data.json";
 import styles from "./styles.module.scss";
 
@@ -24,15 +25,20 @@ const Gallery = () => {
   }, [embla, onSelect]);
 
   return (
-    <div className={styles.outer} ref={viewportRef}>
-      <div className={styles.wrap}>
-        {[...Array(6)].map((_, i) => {
-          return (
-            <div className={styles.slide} key={i}>
-              <Video data={vidData[i * 3]} active={activeIndex === i} />
-            </div>
-          );
-        })}
+    <div>
+      <div className={styles.inner} ref={viewportRef}>
+        <div className={styles.wrap}>
+          {[...Array(10)].map((_, i) => {
+            return (
+              <div className={styles.slide} key={i}>
+                <Video data={vidData[i * 3]} active={activeIndex === i} />
+                <div className={styles.overlay}>
+                  <Overlay />
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
