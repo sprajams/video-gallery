@@ -3,8 +3,10 @@ import clsx from "clsx";
 import styles from "./styles.module.scss";
 
 const Video = ({ data, active }) => {
-  const { src, thumbnail } = data;
+  const { src } = data;
+
   const videoRef = useRef(false);
+
   useEffect(() => {
     if (active) {
       // play vid
@@ -12,7 +14,7 @@ const Video = ({ data, active }) => {
         videoRef.current.play();
       }
     } else {
-      // pause
+      // restart
       if (videoRef.current) {
         videoRef.current.pause();
         videoRef.current.currentTime = 0;

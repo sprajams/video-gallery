@@ -29,7 +29,7 @@ const Gallery = () => {
         {[...Array(6)].map((_, i) => {
           return (
             <div className={styles.slide} key={i}>
-              <Video data={vidData[i * 2]} active={activeIndex === i} />
+              <Video data={vidData[i * 3]} active={activeIndex === i} />
             </div>
           );
         })}
