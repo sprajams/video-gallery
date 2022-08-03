@@ -1,0 +1,13 @@
+.vidWrap {
+  height: 100%;
+  overflow: hidden;
+  &.active {
+    border: 5px solid rgb(247, 223, 6);
+  }
+}
+
+.video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
