@@ -5,19 +5,24 @@ import Overlay from "../Overlay";
 import vidData from "../../constants/video_data.json";
 import styles from "./styles.module.scss";
 
-const Gallery = () => {
+const Gallery = ({ activeIndex, setActiveIndex }) => {
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     axis: "y",
     skipSnaps: false,
   });
-  const [activeIndex, setActiveIndex] = useState(0);
 
+  // scroll to the selected index video
+  useEffect(() => {
+    if (!embla) return;
+    embla.scrollTo(activeIndex, true);
+  }, [embla, activeIndex]);
+
+  // handle changing
   const onSelect = useCallback(() => {
     if (!embla) return;
     setActiveIndex(embla.selectedScrollSnap());
-  }, [embla]);
-
+  }, [embla, setActiveIndex]);
   useEffect(() => {
     if (!embla) return;
     embla.on("select", onSelect);
@@ -28,16 +33,17 @@ const Gallery = () => {
     <div>
       <div className={styles.inner} ref={viewportRef}>
         <div className={styles.wrap}>
-          {[...Array(12)].map((_, i) => {
-            return (
-              <div className={styles.slide} key={i}>
-                <Video data={vidData[i * 3]} active={activeIndex === i} />
-                <div className={styles.overlay}>
-                  <Overlay />
+          {vidData.length > 0 &&
+            vidData.map((x, i) => {
+              return (
+                <div className={styles.slide} key={i}>
+                  <Video data={x} active={activeIndex === i} />
+                  <div className={styles.overlay}>
+                    <Overlay />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     </div>
