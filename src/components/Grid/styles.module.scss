@@ -1,7 +1,21 @@
+.outer {
+  display: flex;
+  height: 94vh;
+  justify-content: center;
+  align-items: flex-end;
+}
 .grid {
+  height: 90vh;
+  width: 100%;
   display: grid;
   list-style-type: none;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
   padding: 0;
+  overflow-y: scroll;
+}
+.grid::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
 }

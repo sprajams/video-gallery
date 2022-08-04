@@ -4,19 +4,20 @@ import styles from "./styles.module.scss";
 
 const Grid = ({ setActiveGallery, setActiveIndex }) => {
   return (
-    <div>
+    <div className={styles.outer}>
       <ul className={styles.grid}>
-        {[...Array(12)].map((_, i) => {
-          const onClick = () => {
-            setActiveIndex(i);
-            setActiveGallery(true);
-          };
-          return (
-            <li key={i} onClick={onClick}>
-              <GridItem index={i} data={vidData[i * 3]} />
-            </li>
-          );
-        })}
+        {vidData.length > 0 &&
+          vidData.map((element, i) => {
+            const onClick = () => {
+              setActiveIndex(i);
+              setActiveGallery(true);
+            };
+            return (
+              <li key={i} onClick={onClick}>
+                <GridItem index={i} data={element.thumbnail} />
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

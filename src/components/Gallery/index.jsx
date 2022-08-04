@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Video from "../Video";
 import Overlay from "../Overlay";
@@ -30,7 +30,7 @@ const Gallery = ({ activeIndex, setActiveIndex }) => {
   }, [embla, onSelect]);
 
   return (
-    <div>
+    <div className={styles.outer}>
       <div className={styles.inner} ref={viewportRef}>
         <div className={styles.wrap}>
           {vidData.length > 0 &&
