@@ -1,13 +1,12 @@
-import vidData from "../../constants/video_data.json";
 import GridItem from "../GridItem";
 import styles from "./styles.module.scss";
 
-const Grid = ({ setActiveGallery, setActiveIndex }) => {
+const Grid = ({ dataSnippet, setActiveGallery, setActiveIndex }) => {
   return (
     <div className={styles.outer}>
       <ul className={styles.grid}>
-        {vidData.length > 0 &&
-          vidData.map((element, i) => {
+        {dataSnippet.length > 0 &&
+          dataSnippet.map((element, i) => {
             const onClick = () => {
               setActiveIndex(i);
               setActiveGallery(true);

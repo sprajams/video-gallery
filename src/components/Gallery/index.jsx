@@ -2,10 +2,9 @@ import { useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Video from "../Video";
 import Overlay from "../Overlay";
-import vidData from "../../constants/video_data.json";
 import styles from "./styles.module.scss";
 
-const Gallery = ({ activeIndex, setActiveIndex }) => {
+const Gallery = ({ dataSnippet, activeIndex, setActiveIndex }) => {
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     axis: "y",
@@ -33,8 +32,8 @@ const Gallery = ({ activeIndex, setActiveIndex }) => {
     <div className={styles.outer}>
       <div className={styles.inner} ref={viewportRef}>
         <div className={styles.wrap}>
-          {vidData.length > 0 &&
-            vidData.map((x, i) => {
+          {dataSnippet.length > 0 &&
+            dataSnippet.map((x, i) => {
               return (
                 <div className={styles.slide} key={i}>
                   <Video data={x} active={activeIndex === i} />
