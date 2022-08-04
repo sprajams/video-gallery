@@ -28,7 +28,7 @@ const Gallery = () => {
     <div>
       <div className={styles.inner} ref={viewportRef}>
         <div className={styles.wrap}>
-          {[...Array(10)].map((_, i) => {
+          {[...Array(12)].map((_, i) => {
             return (
               <div className={styles.slide} key={i}>
                 <Video data={vidData[i * 3]} active={activeIndex === i} />

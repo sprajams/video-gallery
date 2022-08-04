@@ -1,10 +1,19 @@
+import { useState } from "react";
 import Gallery from "./components/Gallery";
-import "./App.css";
+import Grid from "./components/Grid";
+import styles from "./App.module.scss";
 
 function App() {
+  const [activeGallery, setActiveGallery] = useState(false);
   return (
-    <div className="App">
-      <Gallery />
+    <div className={styles.outer}>
+      <div className={styles.inner}>
+        {activeGallery ? (
+          <Gallery />
+        ) : (
+          <Grid setActiveGallery={setActiveGallery} />
+        )}
+      </div>
     </div>
   );
 }
