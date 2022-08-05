@@ -12,7 +12,8 @@ const Gallery = ({
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     axis: "y",
-    skipSnaps: false,
+    skipSnaps: true,
+    speed: 2,
   });
 
   // scroll to the selected index video
@@ -33,22 +34,21 @@ const Gallery = ({
   }, [embla, onSelect]);
 
   return (
-    <div className={styles.outer}>
-      <div className={styles.inner} ref={viewportRef}>
-        <div className={styles.wrap}>
-          {dataSnippet.length > 0 &&
-            dataSnippet.map((x, i) => {
-              return (
-                <div className={styles.slide} key={i}>
-                  <Slide
-                    data={x}
-                    active={activeIndex === i}
-                    setActiveGallery={setActiveGallery}
-                  />
-                </div>
-              );
-            })}
-        </div>
+    <div className={styles.outer} ref={viewportRef}>
+      <div className={styles.inner}>
+        {dataSnippet.length > 0 &&
+          dataSnippet.map((x, i) => {
+            return (
+              <div className={styles.slideWrap}>
+                <Slide
+                  key={i}
+                  data={x}
+                  active={activeIndex === i}
+                  setActiveGallery={setActiveGallery}
+                />
+              </div>
+            );
+          })}
       </div>
     </div>
   );

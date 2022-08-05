@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import Overlay from "../Overlay";
-import clsx from "clsx";
 import styles from "./styles.module.scss";
 
 const Slide = ({ data, active, setActiveGallery }) => {
@@ -24,7 +23,7 @@ const Slide = ({ data, active, setActiveGallery }) => {
   }, [active]);
 
   return (
-    <div className={clsx(styles.vidWrap, active && styles.active)}>
+    <div className={styles.vidWrap}>
       <video
         ref={videoRef}
         loop={true}
