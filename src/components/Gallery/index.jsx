@@ -3,7 +3,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import Slide from "../Slide";
 import styles from "./styles.module.scss";
 
-const Gallery = ({ dataSnippet, activeIndex, setActiveIndex }) => {
+const Gallery = ({
+  dataSnippet,
+  activeIndex,
+  setActiveIndex,
+  setActiveGallery,
+}) => {
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     axis: "y",
@@ -35,7 +40,11 @@ const Gallery = ({ dataSnippet, activeIndex, setActiveIndex }) => {
             dataSnippet.map((x, i) => {
               return (
                 <div className={styles.slide} key={i}>
-                  <Slide data={x} active={activeIndex === i} />
+                  <Slide
+                    data={x}
+                    active={activeIndex === i}
+                    setActiveGallery={setActiveGallery}
+                  />
                 </div>
               );
             })}
