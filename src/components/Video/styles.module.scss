@@ -1,8 +1,7 @@
 .vidWrap {
   height: 100%;
   overflow: hidden;
-  &.active {
-  }
+  pointer-events: none;
 }
 
 .video {
