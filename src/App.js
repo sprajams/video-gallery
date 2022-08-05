@@ -6,7 +6,7 @@ import BottomSidebar from "./components/BottomSidebar";
 import styles from "./App.module.scss";
 
 function App() {
-  const [activeGallery, setActiveGallery] = useState(false);
+  const [activeGallery, setActiveGallery] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
 
   // smaller subset of data to display
@@ -31,7 +31,10 @@ function App() {
         )}
       </div>
       <div>
-        <BottomSidebar setActiveGallery={setActiveGallery} />
+        <BottomSidebar
+          activeGallery={activeGallery}
+          setActiveGallery={setActiveGallery}
+        />
       </div>
     </div>
   );

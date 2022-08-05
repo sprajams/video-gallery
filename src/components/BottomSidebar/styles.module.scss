@@ -20,4 +20,7 @@
   width: 36px;
   cursor: pointer;
   padding: 5px;
+  &.active {
+    color: rgb(119, 62, 62);
+  }
 }

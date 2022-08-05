@@ -1,6 +1,7 @@
 import styles from "./styles.module.scss";
+import clsx from "clsx";
 
-const BottomSidebar = ({ setActiveGallery }) => {
+const BottomSidebar = ({ setActiveGallery, activeGallery }) => {
   const goToGridDisplay = () => {
     setActiveGallery(false);
   };
@@ -9,7 +10,10 @@ const BottomSidebar = ({ setActiveGallery }) => {
   };
   return (
     <ul className={styles.wrap}>
-      <li className={styles.bottomBarIcons} onClick={goHome}>
+      <li
+        className={clsx(styles.bottomBarIcons, activeGallery && styles.active)}
+        onClick={goHome}
+      >
         {/* home icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +24,10 @@ const BottomSidebar = ({ setActiveGallery }) => {
           <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
         </svg>
       </li>
-      <li className={styles.bottomBarIcons} onClick={goToGridDisplay}>
+      <li
+        className={clsx(styles.bottomBarIcons, !activeGallery && styles.active)}
+        onClick={goToGridDisplay}
+      >
         {/* grid icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
