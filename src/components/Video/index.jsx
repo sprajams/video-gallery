@@ -28,6 +28,7 @@ const Video = ({ data, active }) => {
         ref={videoRef}
         loop={true}
         muted
+        webkit-playsinline
         playsInline
         className={styles.video}
       >
