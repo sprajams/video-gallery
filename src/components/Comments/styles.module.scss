@@ -1,0 +1,23 @@
+.outer {
+  position: relative;
+}
+.wrap {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+.closeBtn {
+  display: flex;
+  border: none;
+  background: inherit;
+  color: white;
+  width: 32px;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  cursor: pointer;
+}
+.comment {
+  margin: 5px auto;
+}
