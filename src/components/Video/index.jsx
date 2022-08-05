@@ -24,7 +24,13 @@ const Video = ({ data, active }) => {
 
   return (
     <div className={clsx(styles.vidWrap, active && styles.active)}>
-      <video ref={videoRef} loop={true} muted className={styles.video}>
+      <video
+        ref={videoRef}
+        loop={true}
+        muted
+        playsInline
+        className={styles.video}
+      >
         <source src={src} type="video/mp4" />
       </video>
     </div>
