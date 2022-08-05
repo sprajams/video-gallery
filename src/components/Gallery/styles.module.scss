@@ -26,7 +26,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-
+  z-index: 1;
   // vignette effect, transparent to black to make text legible
   background: linear-gradient(
     to bottom,
