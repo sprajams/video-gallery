@@ -1,7 +1,6 @@
 import { useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Video from "../Video";
-import Overlay from "../Overlay";
+import Slide from "../Slide";
 import styles from "./styles.module.scss";
 
 const Gallery = ({ dataSnippet, activeIndex, setActiveIndex }) => {
@@ -36,10 +35,7 @@ const Gallery = ({ dataSnippet, activeIndex, setActiveIndex }) => {
             dataSnippet.map((x, i) => {
               return (
                 <div className={styles.slide} key={i}>
-                  <Video data={x} active={activeIndex === i} />
-                  <div className={styles.overlay}>
-                    <Overlay />
-                  </div>
+                  <Slide data={x} active={activeIndex === i} />
                 </div>
               );
             })}

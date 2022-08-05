@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
+import Overlay from "../Overlay";
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 
-const Video = ({ data, active }) => {
+const Slide = ({ data, active }) => {
   const { src } = data;
 
   const videoRef = useRef(false);
@@ -35,8 +36,11 @@ const Video = ({ data, active }) => {
       >
         <source src={src} type="video/mp4" />
       </video>
+      <div className={styles.overlay}>
+        <Overlay />
+      </div>
     </div>
   );
 };
 
-export default Video;
+export default Slide;

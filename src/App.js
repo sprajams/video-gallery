@@ -2,7 +2,6 @@ import { useState } from "react";
 import vidData from "./constants/video_data.json";
 import Gallery from "./components/Gallery";
 import Grid from "./components/Grid";
-import BottomSidebar from "./components/BottomSidebar";
 import styles from "./App.module.scss";
 
 function App() {
@@ -29,12 +28,6 @@ function App() {
             setActiveIndex={setActiveIndex}
           />
         )}
-      </div>
-      <div>
-        <BottomSidebar
-          activeGallery={activeGallery}
-          setActiveGallery={setActiveGallery}
-        />
       </div>
     </div>
   );
