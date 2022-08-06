@@ -1,26 +1,22 @@
-import { useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Slide from "../Slide";
 import styles from "./styles.module.scss";
 
-const Gallery = ({
-  dataSnippet,
-  activeIndex,
-  setActiveIndex,
-  setActiveGallery,
-}) => {
+const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     axis: "y",
-    skipSnaps: true,
-    speed: 2,
+    speed: 8,
   });
 
   // scroll to the selected index video
   useEffect(() => {
     if (!embla) return;
-    embla.scrollTo(activeIndex, true);
-  }, [embla, activeIndex]);
+    embla.scrollTo(initialIndex, true);
+  }, [embla, initialIndex]);
+
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
 
   // handle changing
   const onSelect = useCallback(() => {

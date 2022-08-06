@@ -1,14 +1,14 @@
 import GridItem from "../GridItem";
 import styles from "./styles.module.scss";
 
-const Grid = ({ dataSnippet, setActiveGallery, setActiveIndex }) => {
+const Grid = ({ dataSnippet, setActiveGallery, setInitialIndex }) => {
   return (
     <div className={styles.outer}>
       <ul className={styles.grid}>
         {dataSnippet.length > 0 &&
           dataSnippet.map((element, i) => {
             const onClick = () => {
-              setActiveIndex(i);
+              setInitialIndex(i);
               setActiveGallery(true);
             };
             return (

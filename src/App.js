@@ -6,7 +6,7 @@ import styles from "./App.module.scss";
 
 function App() {
   const [activeGallery, setActiveGallery] = useState(true);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [initialIndex, setInitialIndex] = useState(0);
 
   // smaller subset of data to display
   const dataSnippet = vidData.slice(38, 50);
@@ -15,8 +15,8 @@ function App() {
       {activeGallery ? (
         <Gallery
           dataSnippet={dataSnippet}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
+          initialIndex={initialIndex}
+          setInitialIndex={setInitialIndex}
           setActiveGallery={setActiveGallery}
           x
         />
@@ -24,7 +24,7 @@ function App() {
         <Grid
           dataSnippet={dataSnippet}
           setActiveGallery={setActiveGallery}
-          setActiveIndex={setActiveIndex}
+          setInitialIndex={setInitialIndex}
         />
       )}
     </div>
