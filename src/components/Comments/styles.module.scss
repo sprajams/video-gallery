@@ -1,23 +1,29 @@
 .outer {
-  position: relative;
+  // position: relative;
 }
 .wrap {
   list-style: none;
-  padding: 0;
-  margin-top: 20px;
+  padding: 25px 30px;
+}
+.closeBar {
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid white;
 }
 .closeBtn {
-  display: flex;
+  display: block;
   border: none;
   background: inherit;
   color: white;
-  width: 32px;
+  width: 100%;
   padding: 5px;
-  position: absolute;
-  top: 0;
-  right: 20px;
+  // padding: 5px;
   cursor: pointer;
 }
 .comment {
-  margin: 5px auto;
+  margin: 210px auto;
+}
+.closeIcon {
+  width: 25px;
+  margin: 0 auto;
 }
