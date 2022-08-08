@@ -28,7 +28,6 @@ const Slide = ({ data, active, setActiveGallery }) => {
         ref={videoRef}
         loop={true}
         muted
-        webkit-playsinline
         playsInline
         className={styles.video}
       >

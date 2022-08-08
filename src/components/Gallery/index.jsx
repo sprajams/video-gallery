@@ -39,9 +39,8 @@ const Gallery = ({
         {dataSnippet.length > 0 &&
           dataSnippet.map((x, i) => {
             return (
-              <div className={styles.slideWrap}>
+              <div className={styles.slideWrap} key={i}>
                 <Slide
-                  key={i}
                   data={x}
                   active={activeIndex === i}
                   setActiveGallery={setActiveGallery}

@@ -1,14 +1,39 @@
 import { useState } from "react";
 import Comments from "../Comments";
 import styles from "./styles.module.scss";
+import clsx from "clsx";
 
 const Overlay = ({ setActiveGallery }) => {
-  const [likeCount, setLikeCount] = useState(0);
+  // start likeCount at a random number per post
+  const [likeCount, setLikeCount] = useState(Math.floor(Math.random() * 980));
+  const [likeBtnActive, setLikeBtnActive] = useState(false);
+  const [dislikeBtnActive, setDislikeBtnActive] = useState(false);
+
   const onClickLike = () => {
-    setLikeCount(likeCount + 1);
+    if (dislikeBtnActive) {
+      setLikeCount(likeCount + 2);
+      setLikeBtnActive(true);
+      setDislikeBtnActive(false);
+    } else if (likeBtnActive) {
+      setLikeCount(likeCount - 1);
+      setLikeBtnActive(false);
+    } else {
+      setLikeBtnActive(true);
+      setLikeCount(likeCount + 1);
+    }
   };
   const onClickDislike = () => {
-    setLikeCount(likeCount - 1);
+    if (likeBtnActive) {
+      setLikeCount(likeCount - 2);
+      setLikeBtnActive(false);
+      setDislikeBtnActive(true);
+    } else if (dislikeBtnActive) {
+      setLikeCount(likeCount + 1);
+      setDislikeBtnActive(false);
+    } else {
+      setDislikeBtnActive(true);
+      setLikeCount(likeCount - 1);
+    }
   };
 
   const [activeComments, setActiveComments] = useState(false);
@@ -40,9 +65,17 @@ const Overlay = ({ setActiveGallery }) => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua."
         </div>
+
         <div className={styles.sideBar}>
           <div>
-            <button className={styles.sideBarBtn} onClick={onClickLike}>
+            {/********** like btn **********/}
+            <button
+              className={clsx(
+                likeBtnActive && styles.active,
+                styles.sideBarBtn
+              )}
+              onClick={onClickLike}
+            >
               {/* like icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +87,15 @@ const Overlay = ({ setActiveGallery }) => {
               </svg>
             </button>
             <div>{likeCount}</div>
-            <button className={styles.sideBarBtn} onClick={onClickDislike}>
+
+            {/********** dislike btn **********/}
+            <button
+              className={clsx(
+                dislikeBtnActive && styles.active,
+                styles.sideBarBtn
+              )}
+              onClick={onClickDislike}
+            >
               {/* dislike icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
