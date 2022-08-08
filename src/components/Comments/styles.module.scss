@@ -1,23 +1,62 @@
 .outer {
-  position: relative;
+  // position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: flex-end;
 }
 .wrap {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.wrap::-webkit-scrollbar {
+  width: 5px;
+}
+
+.wrap::-webkit-scrollbar-thumb {
+  background: rgb(124, 123, 123);
+  border-radius: 10px;
 }
 .closeBtn {
-  display: flex;
   border: none;
   background: inherit;
   color: white;
-  width: 32px;
   padding: 5px;
-  position: absolute;
-  top: 0;
-  right: 20px;
   cursor: pointer;
+  width: fit-content;
+  margin-bottom: 5px;
+}
+.closeIcon {
+  width: 25px;
 }
 .comment {
-  margin: 5px auto;
+  margin: 15px auto;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.commentImg {
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: rgb(30, 30, 30);
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+  }
+}
+.commentText {
+  flex: 1;
+}
+
+.userName {
+  font-size: 0.9rem;
 }

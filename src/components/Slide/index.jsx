@@ -23,12 +23,16 @@ const Slide = ({ data, active, setActiveGallery }) => {
   }, [active]);
 
   return (
-    <div className={styles.vidWrap}>
+    <div
+      className={styles.vidWrap}
+      onClick={() => {
+        console.log("clicked");
+      }}
+    >
       <video
         ref={videoRef}
         loop={true}
         muted
-        webkit-playsinline
         playsInline
         className={styles.video}
       >
