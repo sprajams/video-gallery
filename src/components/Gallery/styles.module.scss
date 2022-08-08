@@ -1,7 +1,9 @@
 .outer {
   overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .inner {
