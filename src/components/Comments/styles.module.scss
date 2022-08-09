@@ -17,6 +17,10 @@
   width: 100%;
   padding: 5px 20px 20px;
 }
+// fix double scrollbar on mobile
+.simpleBar::-webkit-scrollbar {
+  display: none;
+}
 
 .closeBtn {
   border: none;
