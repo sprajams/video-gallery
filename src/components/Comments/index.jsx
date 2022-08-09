@@ -1,3 +1,5 @@
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.min.css";
 import styles from "./styles.module.scss";
 
 const Comments = ({ setActiveComments }) => {
@@ -23,88 +25,90 @@ const Comments = ({ setActiveComments }) => {
           </svg>
         </div>
       </button>
-
-      <ul className={styles.wrap}>
-        <li className={styles.comment}>
-          <div className={styles.commentImg}>
-            <img
-              src={`https://placedog.net/45/45?id=${randomID + 1}`}
-              loading="lazy"
-              alt="random dog profile pic"
-            />
-          </div>
-          <div className={styles.commentText}>
-            <h3 className={styles.userName}>User Name</h3>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              et dolore magna aliqua."
-            </p>
-          </div>
-        </li>
-        <li className={styles.comment}>
-          <div className={styles.commentImg}>
-            <img
-              src={`https://placedog.net/45/45?id=${randomID + 2}`}
-              alt="random dog profile pic"
-              loading="lazy"
-            />
-          </div>
-          <div className={styles.commentText}>
-            <h3 className={styles.userName}>User Name</h3>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do."
-            </p>
-          </div>
-        </li>
-        <li className={styles.comment}>
-          <div className={styles.commentImg}>
-            <img
-              src={`https://placedog.net/45/45?id=${randomID + 3}`}
-              alt="random dog profile pic"
-              loading="lazy"
-            />
-          </div>
-          <div className={styles.commentText}>
-            <h3 className={styles.userName}>User Name</h3>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod aliqua."
-            </p>
-          </div>
-        </li>
-        <li className={styles.comment}>
-          <div className={styles.commentImg}>
-            <img
-              src={`https://placedog.net/45/45?id=${randomID + 4}`}
-              alt="random dog profile pic"
-              loading="lazy"
-            />
-          </div>
-          <div className={styles.commentText}>
-            <h3 className={styles.userName}>User Name</h3>
-            <p>
-              "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua."
-            </p>
-          </div>
-        </li>
-        <li className={styles.comment}>
-          <div className={styles.commentImg}>
-            <img
-              src={`https://placedog.net/45/45?id=${randomID + 5}`}
-              alt="random dog profile pic"
-              loading="lazy"
-            />
-          </div>
-          <div className={styles.commentText}>
-            <h3 className={styles.userName}>User Name</h3>
-            <p>
-              "Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod
-              aliqua."
-            </p>
-          </div>
-        </li>
-      </ul>
+      <SimpleBar className={styles.simpleBar}>
+        <ul className={styles.wrap}>
+          <li className={styles.comment}>
+            <div className={styles.commentImg}>
+              <img
+                src={`https://placedog.net/45/45?id=${randomID + 1}`}
+                loading="lazy"
+                alt="random dog profile pic"
+              />
+            </div>
+            <div className={styles.commentText}>
+              <h3 className={styles.userName}>User Name</h3>
+              <p>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                et dolore magna aliqua."
+              </p>
+            </div>
+          </li>
+          <li className={styles.comment}>
+            <div className={styles.commentImg}>
+              <img
+                src={`https://placedog.net/45/45?id=${randomID + 2}`}
+                alt="random dog profile pic"
+                loading="lazy"
+              />
+            </div>
+            <div className={styles.commentText}>
+              <h3 className={styles.userName}>User Name</h3>
+              <p>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                do."
+              </p>
+            </div>
+          </li>
+          <li className={styles.comment}>
+            <div className={styles.commentImg}>
+              <img
+                src={`https://placedog.net/45/45?id=${randomID + 3}`}
+                alt="random dog profile pic"
+                loading="lazy"
+              />
+            </div>
+            <div className={styles.commentText}>
+              <h3 className={styles.userName}>User Name</h3>
+              <p>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod aliqua."
+              </p>
+            </div>
+          </li>
+          <li className={styles.comment}>
+            <div className={styles.commentImg}>
+              <img
+                src={`https://placedog.net/45/45?id=${randomID + 4}`}
+                alt="random dog profile pic"
+                loading="lazy"
+              />
+            </div>
+            <div className={styles.commentText}>
+              <h3 className={styles.userName}>User Name</h3>
+              <p>
+                "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua."
+              </p>
+            </div>
+          </li>
+          <li className={styles.comment}>
+            <div className={styles.commentImg}>
+              <img
+                src={`https://placedog.net/45/45?id=${randomID + 5}`}
+                alt="random dog profile pic"
+                loading="lazy"
+              />
+            </div>
+            <div className={styles.commentText}>
+              <h3 className={styles.userName}>User Name</h3>
+              <p>
+                "Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod
+                aliqua."
+              </p>
+            </div>
+          </li>
+        </ul>
+      </SimpleBar>
     </div>
   );
 };

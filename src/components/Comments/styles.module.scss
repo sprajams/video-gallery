@@ -11,16 +11,13 @@
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
 }
-.wrap::-webkit-scrollbar {
-  width: 5px;
+.simpleBar {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
 }
 
-.wrap::-webkit-scrollbar-thumb {
-  background: rgb(124, 123, 123);
-  border-radius: 10px;
-}
 .closeBtn {
   border: none;
   background: inherit;
