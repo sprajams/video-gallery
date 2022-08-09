@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Slide from "../Slide";
 import styles from "./styles.module.scss";
 
 const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
+  let navigate = useNavigate();
+  const navHome = () => {
+    navigate("/", { replace: true });
+  };
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     axis: "y",
@@ -21,8 +26,10 @@ const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
   // handle changing
   const onSelect = useCallback(() => {
     if (!embla) return;
-    setActiveIndex(embla.selectedScrollSnap());
-  }, [embla, setActiveIndex]);
+    const nextIndex = embla.selectedScrollSnap();
+    setActiveIndex(nextIndex);
+    navigate(`/video/${nextIndex + 1}`, { replace: true });
+  }, [embla, setActiveIndex, navigate]);
   useEffect(() => {
     if (!embla) return;
     embla.on("select", onSelect);
@@ -51,6 +58,7 @@ const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
                   setActiveGallery={setActiveGallery}
                   onSlideClick={onSlideClick}
                   onSlideClose={onSlideClose}
+                  navHome={navHome}
                 />
               </div>
             );

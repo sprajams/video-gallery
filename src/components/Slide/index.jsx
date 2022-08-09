@@ -8,6 +8,7 @@ const Slide = ({
   setActiveGallery,
   onSlideClick,
   onSlideClose,
+  navHome,
 }) => {
   const { src } = data;
 
@@ -29,12 +30,7 @@ const Slide = ({
   }, [active]);
 
   return (
-    <div
-      className={styles.vidWrap}
-      onClick={() => {
-        console.log("clicked");
-      }}
-    >
+    <div className={styles.vidWrap}>
       <video
         ref={videoRef}
         loop={true}
@@ -49,6 +45,7 @@ const Slide = ({
           setActiveGallery={setActiveGallery}
           onSlideClick={onSlideClick}
           onSlideClose={onSlideClose}
+          navHome={navHome}
         />
       </div>
     </div>

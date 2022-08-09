@@ -5,7 +5,7 @@ import Grid from "./components/Grid";
 import styles from "./App.module.scss";
 
 function App() {
-  const [activeGallery, setActiveGallery] = useState(true);
+  const [activeGallery, setActiveGallery] = useState(false);
   const [initialIndex, setInitialIndex] = useState(0);
 
   // smaller subset of data to display
