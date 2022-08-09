@@ -15,7 +15,7 @@
 .simpleBar {
   height: 100%;
   width: 100%;
-  padding: 20px;
+  padding: 5px 20px 20px;
 }
 
 .closeBtn {
@@ -25,13 +25,12 @@
   padding: 5px;
   cursor: pointer;
   width: fit-content;
-  margin-bottom: 5px;
 }
 .closeIcon {
   width: 25px;
 }
 .comment {
-  margin: 15px auto;
+  margin: 0 auto 15px;
   font-size: 0.9rem;
   display: flex;
   gap: 15px;

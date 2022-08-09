@@ -2,7 +2,13 @@ import { useEffect, useRef } from "react";
 import Overlay from "../Overlay";
 import styles from "./styles.module.scss";
 
-const Slide = ({ data, active, setActiveGallery }) => {
+const Slide = ({
+  data,
+  active,
+  setActiveGallery,
+  onSlideClick,
+  onSlideClose,
+}) => {
   const { src } = data;
 
   const videoRef = useRef(false);
@@ -39,7 +45,11 @@ const Slide = ({ data, active, setActiveGallery }) => {
         <source src={src} type="video/mp4" />
       </video>
       <div className={styles.overlay}>
-        <Overlay setActiveGallery={setActiveGallery} />
+        <Overlay
+          setActiveGallery={setActiveGallery}
+          onSlideClick={onSlideClick}
+          onSlideClose={onSlideClose}
+        />
       </div>
     </div>
   );

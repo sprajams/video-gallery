@@ -3,7 +3,7 @@ import Comments from "../Comments";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
 
-const Overlay = ({ setActiveGallery }) => {
+const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose }) => {
   // start likeCount at a random number per post
   const [likeCount, setLikeCount] = useState(Math.floor(Math.random() * 980));
   const [likeBtnActive, setLikeBtnActive] = useState(false);
@@ -38,6 +38,7 @@ const Overlay = ({ setActiveGallery }) => {
 
   const [activeComments, setActiveComments] = useState(false);
   const onClickComments = () => {
+    onSlideClick();
     setActiveComments(true);
   };
 
@@ -136,7 +137,10 @@ const Overlay = ({ setActiveGallery }) => {
       </div>
       {activeComments && (
         <div className={styles.commentBox}>
-          <Comments setActiveComments={setActiveComments} />
+          <Comments
+            setActiveComments={setActiveComments}
+            onSlideClose={onSlideClose}
+          />
         </div>
       )}
     </div>

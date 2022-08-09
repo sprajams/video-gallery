@@ -29,6 +29,15 @@ const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
     onSelect();
   }, [embla, onSelect]);
 
+  const onSlideClick = useCallback(() => {
+    if (embla && embla.clickAllowed()) {
+      embla.reInit({ draggable: false });
+    }
+  }, [embla]);
+
+  const onSlideClose = useCallback(() => {
+    embla.reInit({ draggable: true });
+  }, [embla]);
   return (
     <div className={styles.outer} ref={viewportRef}>
       <div className={styles.inner}>
@@ -40,6 +49,8 @@ const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
                   data={x}
                   active={activeIndex === i}
                   setActiveGallery={setActiveGallery}
+                  onSlideClick={onSlideClick}
+                  onSlideClose={onSlideClose}
                 />
               </div>
             );
