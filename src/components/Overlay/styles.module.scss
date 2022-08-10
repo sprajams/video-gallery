@@ -27,7 +27,6 @@
     rgba(0, 0, 0, 0.8) 97%,
     rgba(0, 0, 0, 0.85) 100%
   );
-
   color: white;
 }
 .textBox {
@@ -86,4 +85,10 @@
 
 .active {
   color: rgb(255, 132, 9);
+}
+
+.toast {
+  position: absolute;
+  width: fit-content;
+  height: 50px;
 }

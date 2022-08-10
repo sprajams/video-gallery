@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import Comments from "../Comments";
 import styles from "./styles.module.scss";
@@ -45,6 +47,11 @@ const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose, navHome }) => {
   const onClickHome = () => {
     navHome();
     setActiveGallery(false);
+  };
+
+  const onClickShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    toast("copied to clipboard!");
   };
   return (
     <div className={styles.outer}>
@@ -123,7 +130,7 @@ const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose, navHome }) => {
               />
             </svg>
           </button>
-          <button className={styles.sideBarBtn}>
+          <button className={styles.sideBarBtn} onClick={onClickShare}>
             {/* share icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -144,6 +151,19 @@ const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose, navHome }) => {
           />
         </div>
       )}
+      <ToastContainer
+        limit={1}
+        className={styles.toast}
+        position="bottom-right"
+        autoClose={500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
