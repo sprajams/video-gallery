@@ -1,19 +1,25 @@
 import { useState } from "react";
 import Grid from "../Grid";
+import Modal from "../Modal";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
 
 const Home = ({ dataSnippet, setActiveGallery, setInitialIndex }) => {
   const [isFollowing, setIsFollowing] = useState(false);
+  const [openOptions, setOpenOptions] = useState(false);
 
   const onClickFollow = () => {
     setIsFollowing(!isFollowing);
   };
 
+  const onClickOptions = () => {
+    setOpenOptions(!openOptions);
+  };
+
   return (
-    <div className={styles.outer}>
+    <div className={clsx(styles.outer, openOptions && styles.fixed)}>
       <h2 className={styles.username}>@Kona</h2>
-      <div className={styles.inner}>
+      <div className={clsx(styles.inner, openOptions && styles.fixed)}>
         <div className={styles.profile}>
           <div className={styles.profileTopWrap}>
             <div className={styles.profilePic}>
@@ -49,7 +55,10 @@ const Home = ({ dataSnippet, setActiveGallery, setInitialIndex }) => {
               {isFollowing ? "Following" : "Follow"}
             </button>
             <div className={styles.smallBtnWrap}>
-              <button className={clsx(styles.btn, styles.btnIcon)}>
+              <button
+                className={clsx(styles.btn, styles.btnIcon)}
+                onClick={onClickOptions}
+              >
                 {/* down icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +95,11 @@ const Home = ({ dataSnippet, setActiveGallery, setInitialIndex }) => {
             Follow for more content!
           </div>
         </div>
+        {openOptions && (
+          <div className={styles.modal}>
+            <Modal setOpenOptions={setOpenOptions} />
+          </div>
+        )}
         <Grid
           dataSnippet={dataSnippet}
           setActiveGallery={setActiveGallery}
