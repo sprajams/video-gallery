@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import vidData from "./constants/video_data.json";
 import Gallery from "./components/Gallery";
-import Grid from "./components/Grid";
+import Home from "./components/Home";
 import styles from "./App.module.scss";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
           x
         />
       ) : (
-        <Grid
+        <Home
           dataSnippet={dataSnippet}
           setActiveGallery={setActiveGallery}
           setInitialIndex={setInitialIndex}

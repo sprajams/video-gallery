@@ -13,13 +13,11 @@
   width: 100%;
   display: grid;
   list-style-type: none;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
+  grid-template-columns: repeat(3, calc(100vw / 3));
+  grid-gap: 3px;
   padding: 0;
-  overflow-y: scroll;
-}
-.grid::-webkit-scrollbar {
-  /* WebKit */
-  width: 0;
-  height: 0;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(3, calc(500px / 3));
+  }
 }
