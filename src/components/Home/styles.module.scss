@@ -13,7 +13,7 @@
 }
 
 .username {
-  margin: 10px;
+  margin: 20px;
 }
 .inner {
   width: 100%;
@@ -100,6 +100,16 @@
   border: none;
   height: 35px;
 }
+.backBtn {
+  width: 32px;
+  padding: 0;
+  background: transparent;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+}
+
 .btnFollow {
   width: 275px;
   color: white;
@@ -128,7 +138,9 @@
 .profileBio {
   margin-top: 10px;
 }
-
+.btnAlert {
+  color: rgba(167, 44, 44, 0.75);
+}
 .modal {
   position: absolute;
   width: 100%;

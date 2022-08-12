@@ -1,30 +1,20 @@
-import { useState } from "react";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
 
-const Modal = ({ setOpenOptions, setIsFollowing, isFollowing }) => {
-  const [favorite, setFavorite] = useState(false);
-  const [mute, setMute] = useState(false);
-  const [reported, setReported] = useState(false);
-
+const Modal = ({
+  setOpenOptions,
+  isFollowing,
+  favorite,
+  onClickFav,
+  toUnfollow,
+  mute,
+  toMute,
+  report,
+  toReport,
+}) => {
   const toCloseModal = () => {
     setOpenOptions(false);
   };
-  const onClickFav = () => {
-    setFavorite(!favorite);
-  };
-  const toMute = () => {
-    setMute(!mute);
-  };
-  const toReport = () => {
-    setReported(!reported);
-  };
-
-  const toUnfollow = () => {
-    setOpenOptions(false);
-    setIsFollowing(false);
-  };
-
   return (
     <div className={styles.outer}>
       <div className={styles.outside} onClick={toCloseModal}></div>
@@ -111,7 +101,7 @@ const Modal = ({ setOpenOptions, setIsFollowing, isFollowing }) => {
               className={clsx(
                 styles.btn,
                 styles.btnIcon,
-                reported && styles.reported
+                report && styles.reported
               )}
               onClick={toReport}
             >
