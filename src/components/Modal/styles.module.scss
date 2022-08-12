@@ -21,17 +21,19 @@
   display: flex;
   flex-direction: column;
 }
-.btnClose {
-  position: absolute;
-  top: 20px;
-  padding: 0;
-  right: 20px;
-  width: 28px;
-  height: 28px;
+.btn {
   border: none;
   background: transparent;
   color: white;
   cursor: pointer;
+  padding: 0;
+}
+.btnClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
 }
 .option {
   padding: 0;
@@ -40,6 +42,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (min-width: 600px) {
+    padding: 15px calc(115px / 2);
+  }
 }
 .title {
   justify-content: center;
@@ -52,12 +57,18 @@
   padding: 2px;
   color: rgb(91, 90, 90);
   cursor: pointer;
-  &.active {
-    color: rgb(244, 237, 0, 1);
-    color: linear-gradient(
-      25deg,
-      rgba(112, 30, 30, 1) 0%,
-      rgba(244, 237, 0, 1) 100%
-    );
+}
+.favorite {
+  color: rgb(240, 173, 28);
+}
+.muted {
+  color: rgb(144, 74, 74);
+}
+.reported {
+  color: rgb(141, 36, 36);
+}
+.unfollowBtn {
+  &:hover {
+    color: rgb(210, 107, 107);
   }
 }

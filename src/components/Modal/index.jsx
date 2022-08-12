@@ -2,21 +2,37 @@ import { useState } from "react";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
 
-const Modal = ({ setOpenOptions }) => {
+const Modal = ({ setOpenOptions, setIsFollowing, isFollowing }) => {
   const [favorite, setFavorite] = useState(false);
+  const [mute, setMute] = useState(false);
+  const [reported, setReported] = useState(false);
+
   const toCloseModal = () => {
-    console.log("close it");
     setOpenOptions(false);
   };
   const onClickFav = () => {
     setFavorite(!favorite);
+  };
+  const toMute = () => {
+    setMute(!mute);
+  };
+  const toReport = () => {
+    setReported(!reported);
+  };
+
+  const toUnfollow = () => {
+    setOpenOptions(false);
+    setIsFollowing(false);
   };
 
   return (
     <div className={styles.outer}>
       <div className={styles.outside} onClick={toCloseModal}></div>
       <ul className={styles.wrap} onClick={() => console.log("inside")}>
-        <button onClick={toCloseModal} className={styles.btnClose}>
+        <button
+          onClick={toCloseModal}
+          className={clsx(styles.btn, styles.btnClose)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -34,9 +50,13 @@ const Modal = ({ setOpenOptions }) => {
           <h3>Kona</h3>
         </li>
         <li className={styles.option}>
-          <div>Favorite</div>
+          <div>{favorite ? "Favorited" : "Add to favorites"}</div>
           <button
-            className={clsx(styles.btnIcon, favorite && styles.active)}
+            className={clsx(
+              styles.btn,
+              styles.btnIcon,
+              favorite && styles.favorite
+            )}
             onClick={onClickFav}
           >
             {/* sparkle icon  */}
@@ -56,10 +76,61 @@ const Modal = ({ setOpenOptions }) => {
         </li>
         <li className={styles.option}>
           <div>Mute</div>
+          <button
+            className={clsx(styles.btn, styles.btnIcon, mute && styles.muted)}
+            onClick={toMute}
+          >
+            {/* sparkle icon  */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
         </li>
-        <li className={styles.option}>
-          <div>Unfollow</div>
-        </li>
+        {isFollowing ? (
+          <li className={styles.option}>
+            <button
+              className={clsx(styles.btn, styles.unfollowBtn)}
+              onClick={toUnfollow}
+            >
+              <div>Unfollow</div>
+            </button>
+          </li>
+        ) : (
+          <li className={styles.option}>
+            <div>Report</div>
+            <button
+              className={clsx(
+                styles.btn,
+                styles.btnIcon,
+                reported && styles.reported
+              )}
+              onClick={toReport}
+            >
+              {/* flag icon  */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          </li>
+        )}
       </ul>
     </div>
   );

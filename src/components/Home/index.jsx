@@ -101,7 +101,11 @@ const Home = ({ dataSnippet, setActiveGallery, setInitialIndex }) => {
         </div>
         {openOptions && (
           <div className={styles.modal}>
-            <Modal setOpenOptions={setOpenOptions} />
+            <Modal
+              setOpenOptions={setOpenOptions}
+              setIsFollowing={setIsFollowing}
+              isFollowing={isFollowing}
+            />
           </div>
         )}
         <Grid
