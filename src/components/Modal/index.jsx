@@ -1,11 +1,10 @@
 import styles from "./styles.module.scss";
 import clsx from "clsx";
 
-const Modal = ({ setActiveModal, data }) => {
+const Modal = ({ setActiveModal, data, modalState, toggleModalState }) => {
   const toCloseModal = () => {
     setActiveModal(false);
   };
-
   return (
     <div className={styles.outer}>
       <div className={styles.outside} onClick={toCloseModal}></div>
@@ -30,18 +29,22 @@ const Modal = ({ setActiveModal, data }) => {
         <li className={clsx(styles.option, styles.title)}>
           <h3>Kona</h3>
         </li>
-
         {data.length > 0 &&
           data.map((option, i) => {
+            const status = modalState[option.key];
+            const onClick = () => {
+              toggleModalState(option.key);
+            };
             return (
-              <li className={styles.option} key={i}>
+              <li className={styles.option} key={option.key}>
                 {option.icon && <div>{option.title}</div>}
                 <button
                   className={clsx(
                     styles.btn,
                     option.icon ? styles.btnIcon : styles.btnText,
-                    option.status && styles.active
+                    status && styles.active
                   )}
+                  onClick={onClick}
                 >
                   {option.icon ? option.icon : option.title}
                 </button>
