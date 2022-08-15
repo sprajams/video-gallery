@@ -106,49 +106,47 @@ const Home = ({ dataSnippet, setActiveGallery, setInitialIndex }) => {
   };
 
   return (
-    <div className={clsx(styles.outer, activeModal && styles.fixed)}>
-      <button
-        className={clsx(styles.btn, styles.backBtn)}
-        onClick={onClickHome}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
+    <div className={styles.outer}>
+      <div className={styles.header}>
+        <button
+          className={clsx(styles.btn, styles.backBtn)}
+          onClick={onClickHome}
         >
-          <path
-            fillRule="evenodd"
-            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </button>
-      <h2 className={styles.username}>@Kona</h2>
-      <div className={clsx(styles.inner, activeModal && styles.fixed)}>
-        <Profile
-          onClickOptions={onClickOptions}
-          isFollowing={isFollowing}
-          onClickFollow={onClickFollow}
-        />
-        {activeModal && (
-          <div className={styles.modal}>
-            <Modal
-              setActiveModal={setActiveModal}
-              data={MODAL_DATA}
-              modalState={modalState}
-              toggleModalState={toggleModalState}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clipRule="evenodd"
             />
-          </div>
-        )}
-        <div className={clsx(!isFollowing && styles.gridCover)}>
-          <Grid
-            dataSnippet={dataSnippet}
-            setActiveGallery={setActiveGallery}
-            setInitialIndex={setInitialIndex}
+          </svg>
+        </button>
+        <h2 className={styles.username}>@Kona</h2>
+      </div>
+      <Profile
+        onClickOptions={onClickOptions}
+        isFollowing={isFollowing}
+        onClickFollow={onClickFollow}
+      />
+      {activeModal && (
+        <div className={styles.modal}>
+          <Modal
+            setActiveModal={setActiveModal}
+            data={MODAL_DATA}
+            modalState={modalState}
+            toggleModalState={toggleModalState}
           />
         </div>
-      </div>
+      )}
+      <Grid
+        dataSnippet={dataSnippet}
+        setActiveGallery={setActiveGallery}
+        setInitialIndex={setInitialIndex}
+      />
     </div>
   );
 };
