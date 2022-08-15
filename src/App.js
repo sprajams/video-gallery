@@ -4,6 +4,7 @@ import vidData from "./constants/video_data.json";
 import Gallery from "./components/Gallery";
 import Home from "./components/Home";
 import styles from "./App.module.scss";
+import clsx from "clsx";
 
 function App() {
   let location = useLocation();
@@ -20,25 +21,25 @@ function App() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   // smaller subset of data to display
   const dataSnippet = vidData.slice(38, 50);
   return (
-    <div className={styles.outer}>
-      {activeGallery ? (
+    <div className={clsx(styles.outer, activeGallery && styles.activeGallery)}>
+      <Home
+        dataSnippet={dataSnippet}
+        setActiveGallery={setActiveGallery}
+        setInitialIndex={setInitialIndex}
+      />
+
+      <div className={clsx(styles.galleryWrap, activeGallery && styles.active)}>
         <Gallery
           dataSnippet={dataSnippet}
           initialIndex={initialIndex}
           setInitialIndex={setInitialIndex}
           setActiveGallery={setActiveGallery}
-          x
         />
-      ) : (
-        <Home
-          dataSnippet={dataSnippet}
-          setActiveGallery={setActiveGallery}
-          setInitialIndex={setInitialIndex}
-        />
-      )}
+      </div>
     </div>
   );
 }

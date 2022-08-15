@@ -16,8 +16,7 @@
   grid-template-columns: repeat(3, calc(100vw / 3));
   grid-gap: 3px;
   padding: 0;
-
   @media (min-width: 600px) {
-    grid-template-columns: repeat(3, calc(500px / 3));
+    grid-template-columns: repeat(3, calc(494px / 3));
   }
 }

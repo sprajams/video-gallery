@@ -127,26 +127,29 @@ const Home = ({ dataSnippet, setActiveGallery, setInitialIndex }) => {
         </button>
         <h2 className={styles.username}>@Kona</h2>
       </div>
-      <Profile
-        onClickOptions={onClickOptions}
-        isFollowing={isFollowing}
-        onClickFollow={onClickFollow}
-      />
-      {activeModal && (
-        <div className={styles.modal}>
-          <Modal
-            setActiveModal={setActiveModal}
-            data={MODAL_DATA}
-            modalState={modalState}
-            toggleModalState={toggleModalState}
-          />
-        </div>
-      )}
-      <Grid
-        dataSnippet={dataSnippet}
-        setActiveGallery={setActiveGallery}
-        setInitialIndex={setInitialIndex}
-      />
+
+      <div className={styles.inner}>
+        <Profile
+          onClickOptions={onClickOptions}
+          isFollowing={isFollowing}
+          onClickFollow={onClickFollow}
+        />
+        {activeModal && (
+          <div className={styles.modal}>
+            <Modal
+              setActiveModal={setActiveModal}
+              data={MODAL_DATA}
+              modalState={modalState}
+              toggleModalState={toggleModalState}
+            />
+          </div>
+        )}
+        <Grid
+          dataSnippet={dataSnippet}
+          setActiveGallery={setActiveGallery}
+          setInitialIndex={setInitialIndex}
+        />
+      </div>
     </div>
   );
 };
