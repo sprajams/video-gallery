@@ -12,7 +12,7 @@ const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     axis: "y",
-    speed: 8,
+    speed: 4,
   });
 
   // scroll to the selected index video
@@ -29,7 +29,8 @@ const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
     const nextIndex = embla.selectedScrollSnap();
     setActiveIndex(nextIndex);
     navigate(`/video/${nextIndex + 1}`, { replace: true });
-  }, [embla, setActiveIndex, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [embla, setActiveIndex]);
   useEffect(() => {
     if (!embla) return;
     embla.on("select", onSelect);
