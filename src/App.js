@@ -25,20 +25,24 @@ function App() {
   // smaller subset of data to display
   const dataSnippet = vidData.slice(38, 50);
   return (
-    <div className={clsx(styles.outer, activeGallery && styles.activeGallery)}>
-      <Home
-        dataSnippet={dataSnippet}
-        setActiveGallery={setActiveGallery}
-        setInitialIndex={setInitialIndex}
-      />
-
-      <div className={clsx(styles.galleryWrap, activeGallery && styles.active)}>
-        <Gallery
+    <div className={styles.outer}>
+      <div className={styles.inner}>
+        <Home
           dataSnippet={dataSnippet}
-          initialIndex={initialIndex}
-          activeGallery={activeGallery}
           setActiveGallery={setActiveGallery}
+          setInitialIndex={setInitialIndex}
         />
+
+        <div
+          className={clsx(styles.galleryWrap, activeGallery && styles.active)}
+        >
+          <Gallery
+            dataSnippet={dataSnippet}
+            initialIndex={initialIndex}
+            activeGallery={activeGallery}
+            setActiveGallery={setActiveGallery}
+          />
+        </div>
       </div>
     </div>
   );

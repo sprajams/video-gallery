@@ -1,12 +1,19 @@
 .outer {
-  margin: 0 auto;
   background: black;
   color: white;
   height: 100%;
-  position: relative;
   overflow: hidden;
 }
-
+.inner {
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  @media (min-width: 600px) {
+    max-width: 500px;
+  }
+}
 .galleryWrap {
   position: absolute;
   top: 0;
