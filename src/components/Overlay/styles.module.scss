@@ -1,9 +1,9 @@
 .outer {
   width: 100%;
   height: 100%;
-  display: flex;
-  position: relative;
-  align-items: flex-end;
+  // display: flex;
+  // position: relative;
+  // align-items: flex-end;
   // vignette effect, transparent to black to make text legible
   background: linear-gradient(
     to bottom,
@@ -29,6 +29,19 @@
   );
   color: white;
 }
+.header {
+  height: 10%;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.bottomWrap {
+  display: flex;
+  align-items: flex-end;
+  height: 90%;
+}
+
 .textBox {
   height: fit-content;
   padding: 5px;
@@ -74,6 +87,7 @@
 .backBtn {
   border: none;
   width: 32px;
+  height: 35px;
   padding: 0;
   background: transparent;
   position: absolute;

@@ -14,8 +14,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // TODO: make header sticky to top of screen
-  // position: sticky;
   padding: 20px;
 }
 .backBtn {
@@ -24,7 +22,8 @@
   background: transparent;
   color: white;
   position: absolute;
-  left: 0;
+  left: 20px;
+  top: 20px;
 }
 .username {
   font-size: 1.4rem;

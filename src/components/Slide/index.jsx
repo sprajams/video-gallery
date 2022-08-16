@@ -30,8 +30,8 @@ const Slide = ({
   }, [active]);
 
   return (
-    <div className={styles.vidWrap}>
-      <div>
+    <div className={styles.slideWrap}>
+      <div className={styles.vidWrap}>
         <video
           ref={videoRef}
           loop={true}
