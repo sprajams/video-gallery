@@ -39,7 +39,7 @@ const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose, navHome }) => {
   };
 
   const [activeComments, setActiveComments] = useState(false);
-  const onClickComments = () => {
+  const openComment = () => {
     onSlideClick();
     setActiveComments(true);
   };
@@ -49,10 +49,15 @@ const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose, navHome }) => {
     setActiveGallery(false);
   };
 
+  const closeComment = () => {
+    onSlideClose();
+    setActiveComments(false);
+  };
   const onClickShare = () => {
     navigator.clipboard.writeText(window.location.href);
     toast("copied to clipboard!");
   };
+
   return (
     <div className={styles.outer}>
       <div className={styles.header}>
@@ -76,7 +81,6 @@ const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose, navHome }) => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua."
         </p>
-
         <div className={styles.sideBar}>
           <div>
             {/********** like btn **********/}
@@ -117,7 +121,7 @@ const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose, navHome }) => {
               </svg>
             </button>
           </div>
-          <button className={styles.sideBarBtn} onClick={onClickComments}>
+          <button className={styles.sideBarBtn} onClick={openComment}>
             {/* comments icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -144,15 +148,15 @@ const Overlay = ({ setActiveGallery, onSlideClick, onSlideClose, navHome }) => {
             </svg>
           </button>
         </div>
+        {activeComments && (
+          <div className={styles.commentBoxWrap}>
+            <div className={styles.commentBoxTop} onClick={closeComment}></div>
+            <div className={styles.commentBoxMain}>
+              <Comments closeComment={closeComment} />
+            </div>
+          </div>
+        )}
       </div>
-      {activeComments && (
-        <div className={styles.commentBox}>
-          <Comments
-            setActiveComments={setActiveComments}
-            onSlideClose={onSlideClose}
-          />
-        </div>
-      )}
       <ToastContainer
         limit={1}
         className={styles.toast}

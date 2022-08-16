@@ -69,13 +69,25 @@
   align-items: center;
   cursor: pointer;
 }
-.commentBox {
+.commentBoxWrap {
   position: absolute;
-  background: rgba(42, 42, 42, 0.98);
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(42, 42, 42, 0.6);
+  align-items: flex-end;
+}
+.commentBoxTop {
+  width: 100%;
+  height: 100%;
+}
+.commentBoxMain {
+  background: rgba(42, 42, 42, 0.98);
   height: 60%;
   max-height: 550px;
   border-radius: 20px 20px 0 0;
+  z-index: 1;
 }
 .numLikes {
   text-align: center;

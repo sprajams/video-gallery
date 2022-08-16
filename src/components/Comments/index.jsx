@@ -1,14 +1,10 @@
 import styles from "./styles.module.scss";
 
-const Comments = ({ setActiveComments, onSlideClose }) => {
-  const onClickClose = () => {
-    onSlideClose();
-    setActiveComments(false);
-  };
+const Comments = ({ closeComment }) => {
   const randomID = Math.floor(Math.random() * 20);
   return (
     <div className={styles.outer}>
-      <button onClick={onClickClose} className={styles.closeBtn}>
+      <button onClick={closeComment} className={styles.closeBtn}>
         <div className={styles.closeIcon}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
