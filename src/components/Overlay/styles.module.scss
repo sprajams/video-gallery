@@ -1,9 +1,7 @@
 .outer {
   width: 100%;
   height: 100%;
-  // display: flex;
-  // position: relative;
-  // align-items: flex-end;
+
   // vignette effect, transparent to black to make text legible
   background: linear-gradient(
     to bottom,
@@ -41,7 +39,6 @@
   align-items: flex-end;
   height: 90%;
 }
-
 .textBox {
   height: fit-content;
   padding: 5px;
@@ -105,4 +102,7 @@
   position: absolute;
   width: fit-content;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
