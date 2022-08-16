@@ -31,15 +31,18 @@ const Slide = ({
 
   return (
     <div className={styles.vidWrap}>
-      <video
-        ref={videoRef}
-        loop={true}
-        muted
-        playsInline
-        className={styles.video}
-      >
-        <source src={src} type="video/mp4" />
-      </video>
+      <div>
+        <video
+          ref={videoRef}
+          loop={true}
+          autoPlay
+          muted
+          playsInline
+          className={styles.video}
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+      </div>
       <div className={styles.overlay}>
         <Overlay
           setActiveGallery={setActiveGallery}

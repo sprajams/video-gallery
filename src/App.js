@@ -36,7 +36,7 @@ function App() {
         <Gallery
           dataSnippet={dataSnippet}
           initialIndex={initialIndex}
-          setInitialIndex={setInitialIndex}
+          activeGallery={activeGallery}
           setActiveGallery={setActiveGallery}
         />
       </div>

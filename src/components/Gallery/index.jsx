@@ -4,7 +4,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import Slide from "../Slide";
 import styles from "./styles.module.scss";
 
-const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
+const Gallery = ({
+  dataSnippet,
+  initialIndex,
+  activeGallery,
+  setActiveGallery,
+}) => {
   let navigate = useNavigate();
   const navHome = () => {
     navigate("/", { replace: true });
@@ -12,18 +17,17 @@ const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     axis: "y",
-    speed: 4,
+    speed: 6,
   });
 
-  // scroll to the selected index video
+  // scroll to the selected index slide
   useEffect(() => {
     if (!embla) return;
     embla.scrollTo(initialIndex, true);
   }, [embla, initialIndex]);
-
   const [activeIndex, setActiveIndex] = useState(initialIndex);
 
-  // handle changing
+  // handle changing of slide
   const onSelect = useCallback(() => {
     if (!embla) return;
     const nextIndex = embla.selectedScrollSnap();
@@ -31,10 +35,17 @@ const Gallery = ({ dataSnippet, initialIndex, setActiveGallery }) => {
     navigate(`/video/${nextIndex + 1}`, { replace: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [embla, setActiveIndex]);
+
+  useEffect(() => {
+    if (activeGallery) {
+      onSelect();
+    }
+  }, [activeGallery, onSelect]);
+
   useEffect(() => {
     if (!embla) return;
     embla.on("select", onSelect);
-    onSelect();
+    // onSelect();
   }, [embla, onSelect]);
 
   const onSlideClick = useCallback(() => {
